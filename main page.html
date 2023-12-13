@@ -139,8 +139,7 @@
                     </h2>
                 </div>
                 <div class="row3">
-                    <button class="start" onclick="showInfo('getStarted')">
-                        Get Started
+                        <button id="getStartedButton" class="start" onclick="showInfo('getStarted')"> Get Started </button>
                     </button>
                 </div>
             </div>
@@ -222,5 +221,13 @@
             infoContainer.innerHTML = infoText;
         }
     </script>
+    <script>
+        function redirectToNewPage() {
+          window.location.href = "botinterface.html";
+        }
+    
+        document.getElementById("getStartedButton").addEventListener("click", redirectToNewPage);
+      </script>
+    </head>
 </body>
 </html>
