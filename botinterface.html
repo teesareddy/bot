@@ -42,47 +42,43 @@
         width: 20%;
             margin: auto;
         }
-        
-    </style>
-    <style>
-        .search-input {
-            position: absolute;
-            bottom: 0;
-            left: 60%;
-            transform: translateX(-50%);
-            width: 70%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            box-sizing: border-box;
-        }
 
-        input[type="text"]:focus {
-            border: 2px solid #ccc;
-        }
-        button {
-            background-color: #a6a6a6;
-            color: white;
-            padding: 10px 24px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .search-button {
-            position: absolute;
-            bottom: 0;
-            left: 92%;
-            transform: translateX(-50%);
-            background-color: #a6a6a6;
-            color: white;
-            padding: 10px 24px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
+        .search-bar {
+    position: fixed;
+    bottom: 0;
+    left: 55%; /* Set the left position to 50% */
+    transform: translateX(-50%);
+    width: 70%;
+    background-color: #f2f2f2;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+}
 
-        button:hover {
-            background-color: #2f373a;
-        }
+#search-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#search-button, #microphone-button {
+    margin-left: 1px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #a6a6a6;
+    color: white;
+}
+
+#microphone-button {
+    background-color: #f44336;
+}
+
+#search-button:hover, #microphone-button:hover {
+    background-color: #2f373a;
+}
     </style>
 </head>
 <body>
@@ -94,8 +90,43 @@
         <div class="right"></div>
         <div class="bottom-left-text">MINBOT</div>
         <img src="minbot.png" alt="Your Image" class="center-image">
-        <input type="text" placeholder="search about mining" class="search-input">
-        <button class="search-button">Send</button>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search about mining">
+            <button id="search-button"><i class="fa fa-search"></i></button>
+            <button id="microphone-button"><i class="fa fa-microphone"></i></button>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        </div>
+    </div>
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const searchButton = document.getElementById('search-button');
+        const micButton = document.getElementById('microphone-button');
+        const recognition = new webkitSpeechRecognition();
+
+        searchButton.addEventListener('click', search);
+
+        micButton.addEventListener('click', startSpeechRecognition);
+
+        recognition.onresult = function(event) {
+            const result = event.results[0][0].transcript;
+            searchInput.value = result;
+            search();
+        };
+
+        recognition.onerror = function(event) {
+            console.error('Speech recognition error:', event.error);
+        };
+
+        function startSpeechRecognition() {
+            recognition.start();
+        }
+
+        function search() {
+            const searchQuery = searchInput.value;
+            alert('Searching for: ' + searchQuery);
+            // Add your search functionality here using the searchQuery
+        }
+    </script>
     </div>
 </head>
 </html>
