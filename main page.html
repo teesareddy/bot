@@ -6,6 +6,12 @@
     <title>MINBOT</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+    background-image: url('back2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: #a6a6a6; /* Add or modify this line to change the background color */
+  }
          .button, .button-secondary {
             cursor: pointer;
             border: none;
@@ -15,7 +21,7 @@
         }
 
         .button:hover, .button-secondary:hover {
-            background-color: #0c0c0c;
+            background-color: #a6a6a6;
         }
 
         .floating-window {
@@ -40,7 +46,6 @@
        .button:hover .floating-window {
             display: block;
         }
-
         .mining_pic {
             max-width: 100%;
             height: auto;
@@ -48,42 +53,35 @@
             border-radius: 5px;
             transition: transform 0.3s ease-in-out;
         }
-
         .mining_pic:hover {
             transform: scale(1.1);
         }
-
         .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr;
         }
-
         .half1 {
             margin-top: 10px;
             margin-bottom: 10px;
             grid-template-rows: 1fr 1fr 1fr;
         }
-
         .half2 {
             display: grid;
             grid-template-rows: 1fr 1fr;
             grid-template-columns: 1fr 1fr;
         }
-
         .minbot {
             width: 30%;
             margin-left: 33%;
             margin-right: auto;
             margin-top: 8.5%;
         }
-
         h2 {
             font-size: 127%;
             text-align: center;
             margin-top: 8.5%;
         }
-
         .start {
             margin-top: 8.5%;
             display: grid;
@@ -91,34 +89,30 @@
             width: 40%;
             height: 90%;
             background-color: rgb(178, 178, 69);
-            color: white;
+            color: #fff;
             font-size: 100%;
             border-radius: 25px;
             border-width: 0px;
             text-align: center;
             font-weight: bold;
         }
-
         .mining_pic {
             width: 100%;
         }
-
         .mining_card {
             margin: 6%;
             box-shadow: .2rem .3rem .9rem .3rem #888888;
         }
-
         p {
             text-align: center;
             margin: 20%;
         }
-
         .mining_buttons {
             display: grid;
             margin-left: auto;
             margin-right: auto;
             border-width: 0px;
-            background-color: rgb(238, 234, 234);
+            background-color: #a6a6a6;
             height: 40%;
         }
     </style>
@@ -193,9 +187,7 @@
                 </div>
             </div>
         </div>
-
         <div id="infoContainer" class="info-container"></div>
-
     </main>
     <script>
         function showInfo(resource) {
@@ -224,12 +216,9 @@
                     imagePath = 'https://tse4.mm.bing.net/th?id=OIP.AiRuVLwCsHmfPdLcHnFmzQHaE7&pid=Api&P=0&h=180';
                     break;
             }
-
-
             if (imagePath) {
                 infoText = '<img src="' + imagePath + '" alt="' + resource + ' image" /><br />' + infoText;
             }
-
             infoContainer.innerHTML = infoText;
         }
     </script>
