@@ -1,0 +1,7 @@
+ TIME-python
+ DateTime
+playsound
+ SpeechRecognition
+ wolframalpha
+ PyObjC
+ gTTs
