@@ -185,9 +185,12 @@
             console.error('Speech recognition error:', event.error);
         };
 
+        recognition.onend = function () {
+            alert('Speech recognition completed!');
+        };
+
         function startSpeechRecognition() {
             recognition.start();
-            
         }
 
         function handleUserInput() {
@@ -211,7 +214,7 @@
         }
 
         function simulateBotResponse(userMessage) {
-            return "Bot: 404 Error!";
+            return "Bot: NO, SESHI IS GAY";
         }
     </script>
 </body>
